@@ -5,6 +5,12 @@
     <artifactId>simple-maven-project-with-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
     <build>
         <plugins>
             <plugin>
