@@ -45,7 +45,7 @@ pipeline {
                         def ii = i
                         testGroups["split-${i}"] = {
                             node {
-                                scm checkout
+                                checkout scm
 
                                 def mavenInstall = 'test -Dmaven.test.failure.ignore=true'
 
