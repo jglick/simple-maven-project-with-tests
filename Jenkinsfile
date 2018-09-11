@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'build'
+                echo 'This is a new line'
             }
         }
 
@@ -38,7 +38,7 @@ pipeline {
         stage('Second ATH') {
             steps {
                 script {
-                    def splits = splitTests parallelism: [$class: 'CountDrivenParallelism', size: 4], generateInclusions: true, estimateTestsFromFiles: true
+                    def splits = splitTests parallelism: [$class: 'TimeDrivenParallelism', mins: 1], generateInclusions: true, estimateTestsFromFiles: true
                     def testGroups = [:]
                     for (int i = 0; i < splits.size(); i++) {
                         def split = splits[i]
