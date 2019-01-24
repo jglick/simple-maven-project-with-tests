@@ -35,9 +35,12 @@ node {
         sh "'${mvnHome}/bin/mvn' -P ${activeProfile} -Dmaven.test.skip=true clean install"
     }
     stage('Archive') {
-        archive '**/target/*.jar'
+        archiveArtifacts '**/target/*.jar'
     }
     stage('Deploy') {
         echo "Deploy is not yet implemented"
+		//sh ‘ssh root@172.17.201.150 rm -rf /root/nems2/jenkins_deploy_test/dist/’
+		sh ‘ssh root@172.17.201.150 mkdir -p /root/nems2/jenkins_deploy_test/’
+		//sh ‘scp -r dist root@172.17.201.150:/root/nems2/jenkins_deploy_test/disk/’
     }
 }
