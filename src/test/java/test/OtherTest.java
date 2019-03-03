@@ -29,8 +29,7 @@ import org.junit.Test;
 public class OtherTest extends Base {
 
     @Test public void mytest() {
-        boolean myBool = false;
-        assertFalse(myBool);
+        assertFalse(false);
     }
 
 }
