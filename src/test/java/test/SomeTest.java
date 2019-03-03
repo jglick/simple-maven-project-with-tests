@@ -25,11 +25,12 @@
 package test;
 
 import org.junit.Test;
+import org.junit.Assert;
 
 public class SomeTest extends Base {
 
     @Test public void test1() {
-        run();
+        fail();
     }
 
     @Test public void test2() {
