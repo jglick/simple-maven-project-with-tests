@@ -29,7 +29,8 @@ import org.junit.Test;
 public class OtherTest extends Base {
 
     @Test public void mytest() {
-        throw new RuntimeException();
+        boolean myBool = false;
+        assertFalse(myBool);
     }
 
 }
