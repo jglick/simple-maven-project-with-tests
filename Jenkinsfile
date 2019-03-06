@@ -1,5 +1,5 @@
 println "BRANCH 2a"
-
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10'))])
 node {
    stage('Checkout'){
 
