@@ -1,6 +1,6 @@
 node {
    def mvnHome
-   stage('Preparation') { // for display purposes
+   stage('Preparation4') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/jglick/simple-maven-project-with-tests.git'
       // Get the Maven tool.
@@ -8,7 +8,7 @@ node {
       // **       in the global configuration.           
       mvnHome = tool 'M3'
    }
-   stage('Build') {
+   stage('Build4') {
       // Run the maven build
       withEnv(["MVN_HOME=$mvnHome"]) {
          if (isUnix()) {
@@ -18,7 +18,7 @@ node {
          }
       }
    }
-   stage('Results') {
+   stage('Results4') {
       junit '**/target/surefire-reports/TEST-*.xml'
       archiveArtifacts 'target/*.jar'
    }
