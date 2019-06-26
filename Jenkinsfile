@@ -1,9 +1,29 @@
-podTemplate(label: BUILD_TAG, containers: [containerTemplate(name: 'maven', image: 'maven', command: 'sleep', args: 'infinity')]) {
-  node(BUILD_TAG) {
-    checkout scm
-    container('maven') {
-      sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
+pipeline {
+  agent {
+    kubernetes {
+      label BUILD_TAG
+      containerTemplate {
+        name 'maven'
+        image 'maven'
+        command 'sleep'
+        args 'infinity'
+      }
     }
-    junit '**/target/surefire-reports/TEST-*.xml'
+  }
+  stages {
+    stage('Run') {
+      steps {
+        container('maven') {
+          sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
+        }
+      }
+    }
+  }
+  post {
+    success {
+      steps {
+        junit '**/target/surefire-reports/TEST-*.xml'
+      }
+    }
   }
 }
