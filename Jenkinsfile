@@ -11,7 +11,7 @@ node('master') {
     }
   }
   stage('Result') {
-    junit '**/target/surefire-report/TEST-*.xml'
+    junit '**/target/surefire-reports/TEST-*.xml'
     archive 'target/*.jar'
   }
 }       
