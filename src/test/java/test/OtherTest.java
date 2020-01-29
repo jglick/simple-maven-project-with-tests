@@ -26,10 +26,18 @@ package test;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class OtherTest extends Base {
 
     @Test public void mytest() {
         run();
     }
 
+    @Test public void test_pass_getDouble() {
+        assertEquals(16, getDouble(4));
+    }
+    @Test public void test_fail_getDouble() {
+        assertEquals(4, getDouble(4));
+    }
 }
