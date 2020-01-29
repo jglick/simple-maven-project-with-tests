@@ -38,6 +38,6 @@ public class OtherTest extends Base {
         assertEquals(16, getDouble(4));
     }
     @Test public void test_fail_getDouble() {
-        assertEquals(4, getDouble(4));
+        assertEquals(4, getDouble(2));
     }
 }
