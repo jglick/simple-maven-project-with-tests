@@ -52,4 +52,28 @@ public class SomeTest extends Base {
         run();
     }
 
+    @Test public void test7() {
+        run(20.0);
+    }
+
+    @Test public void test8() {
+        run(300.0);
+    }
+
+    @Test public void test9() {
+        run();
+    }
+
+    @Test public void test10() {
+        run(1.0);
+    }
+
+    @Test public void test11() {
+        run(0.5);
+    }
+
+    @Test public void test12() {
+        run(0.25);
+    }
+
 }

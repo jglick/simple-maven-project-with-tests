@@ -28,15 +28,24 @@ import static org.junit.Assert.*;
 import org.junit.internal.AssumptionViolatedException;
 
 class Base {
-
-    // Designed to always fail
+    protected double r = 0;
+    protected void run(double seed) {
+        r = Math.random();
+        r *= seed;
+        run();
+    }
     protected void run() {
-        double r = Math.random();
+        if (r == 0)
+        {
+            r = Math.random();
+        }
         if (r < 0.4) {
-//            fail("oops");
+            // fail("oops");
             assertTrue(true);
         } else if (r < 0.5) {
             throw new AssumptionViolatedException("skipping");
+        } else if (r > 0.5) {
+            fail("oops");
         }
     }
 

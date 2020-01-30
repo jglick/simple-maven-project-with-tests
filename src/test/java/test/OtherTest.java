@@ -30,7 +30,7 @@ import static org.junit.Assert.assertEquals;
 
 public class OtherTest extends Base {
 
-    @Test public void mytest() {
+    @Test public void myTest() {
         run();
     }
 
