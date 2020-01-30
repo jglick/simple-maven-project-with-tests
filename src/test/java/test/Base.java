@@ -29,11 +29,13 @@ import org.junit.internal.AssumptionViolatedException;
 
 class Base {
 
+    // Designed to always fail
     protected void run() {
         double r = Math.random();
-        if (r < 0.1) {
-            fail("oops");
-        } else if (r < 0.2) {
+        if (r < 0.4) {
+//            fail("oops");
+            assertTrue(true);
+        } else if (r < 0.5) {
             throw new AssumptionViolatedException("skipping");
         }
     }
