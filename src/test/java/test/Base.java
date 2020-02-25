@@ -39,12 +39,12 @@ class Base {
         {
             r = Math.random();
         }
-        if (r < 0.4) {
+        if (r < 20.0) {
             // fail("oops");
             assertTrue(true);
-        } else if (r < 0.5) {
+        } else if (r < 21.0) {
             throw new AssumptionViolatedException("skipping");
-        } else if (r > 0.5) {
+        } else if (r > 22.0) {
             fail("oops");
         }
     }

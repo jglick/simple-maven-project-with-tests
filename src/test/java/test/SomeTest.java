@@ -57,12 +57,10 @@ public class SomeTest extends Base {
     }
 
     @Test public void test8() {
-        run(300.0);
+        run( 6);
     }
 
-    @Test public void test9() {
-        run();
-    }
+    @Test public void test9() { run();  }
 
     @Test public void test10() {
         run(1.0);
