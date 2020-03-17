@@ -33,6 +33,7 @@ public class SomeTest extends Base {
     }
 
     @Test public void test2() {
+        System.out.println("test");
         run();
     }
 
