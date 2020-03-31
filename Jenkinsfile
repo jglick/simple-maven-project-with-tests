@@ -9,7 +9,7 @@ pipeline {
     }
     post {
         always {
-            junit 'build/reports/**/*.xml'
+            junit 'target/surefire-reports/*.xml'
         }
     }
 //         stage('Build') {
