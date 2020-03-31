@@ -1,20 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Test') {
-      parallel {
-        stage('Test') {
-          steps {
-            bat 'mvn -B clean verify'
-          }
-        }
-
-        stage('') {
-          steps {
-            sh 'mvn -B clean verify'
-          }
-        }
-
+    stage('Windows Testing') {
+      steps {
+        bat 'mvn -B clean verify'
       }
     }
 
