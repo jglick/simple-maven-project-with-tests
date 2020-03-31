@@ -24,13 +24,15 @@
 
 package test;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OtherTest extends Base {
 
-    @Test public void myTest() {
+    @Test
+    public void myTest() {
         run();
     }
 

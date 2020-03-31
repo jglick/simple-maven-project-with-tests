@@ -24,11 +24,12 @@
 
 package test;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SomeTest extends Base {
 
-    @Test public void test1() {
+    @Test
+    public void test1() {
         run();
     }
 

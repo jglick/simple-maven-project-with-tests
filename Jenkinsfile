@@ -7,22 +7,23 @@ pipeline {
 	        }
 	    }
     }
+            stage('Build') {
+                steps {
+                    bat 'mvn -B clean verify package'
+                }
+                post {
+                    success {
+                        echo 'Now Archiving...'
+                        archiveArtifacts artifacts: 'target/*.war'
+                    }
+                }
+            }
     post {
         always {
             junit 'target/surefire-reports/*.xml'
         }
     }
-//         stage('Build') {
-//             steps {
-//                 bat 'mvn -B clean verify package'
-//             }
-//             post {
-//                 success {
-//                     echo 'Now Archiving...'
-//                     archiveArtifacts artifacts: 'target/*.war'
-//                 }
-//             }
-//         }
+
 		
 // 		stage('Deploy to Staging'){
 // 			steps {
