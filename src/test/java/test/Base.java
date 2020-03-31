@@ -24,17 +24,18 @@
 
 package test;
 
-import static org.junit.Assert.*;
-import org.junit.internal.AssumptionViolatedException;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class Base {
     protected double r = 0;
-    protected void run(double seed) {
+    protected void run(double seed) throws Exception {
         r = Math.random();
         r *= seed;
         run();
     }
-    protected void run() {
+    protected void run() throws Exception {
         if (r == 0)
         {
             r = Math.random();
@@ -43,7 +44,7 @@ class Base {
             // fail("oops");
             assertTrue(true);
         } else if (r < 21.0) {
-            throw new AssumptionViolatedException("skipping");
+            throw new Exception("skipping");
         } else if (r > 22.0) {
             fail("oops");
         }

@@ -30,49 +30,99 @@ public class SomeTest extends Base {
 
     @Test
     public void test1() {
-        run();
+        try {
+            run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test2() {
-        run();
+        try {
+            run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test3() {
-        run();
+        try {
+            run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test4() {
-        run();
+        try {
+            run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test5() {
-        run();
+        try {
+            run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test6() {
-        run();
+        try {
+            run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test7() {
-        run(20.0);
+        try {
+            run(20.0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test8() {
-        run( 6);
+        try {
+            run( 6);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    @Test public void test9() { run();  }
+    @Test public void test9() {
+        try {
+            run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test public void test10() {
-        run(1.0);
+        try {
+            run(1.0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test11() {
-        run(0.5);
+        try {
+            run(0.5);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test12() {
-        run(0.25);
+        try {
+            run(0.25);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
