@@ -3,14 +3,15 @@ pipeline {
     stages {
 	    stage('Test') {
 	        steps {
-	        bat 'mvn -B clean verify'
+	            bat 'mvn -B clean verify'
 	        }
 	    }
-	    post {
-            always {
-                junit 'build/reports/**/*.xml'
-            }
+    }
+    post {
+        always {
+            junit 'build/reports/**/*.xml'
         }
+    }
 //         stage('Build') {
 //             steps {
 //                 bat 'mvn -B clean verify package'
@@ -49,5 +50,4 @@ pipeline {
 //             }
 //         }
 		
-	}
 }
