@@ -6,18 +6,19 @@ pipeline {
 	            bat 'mvn -B clean verify'
 	        }
 	    }
-    }
-            stage('Build') {
-                steps {
-                    bat 'mvn -B clean verify package'
-                }
-                post {
-                    success {
-                        echo 'Now Archiving...'
-                        archiveArtifacts artifacts: 'target/*.war'
-                    }
+
+        stage('Build') {
+            steps {
+                bat 'mvn -B clean verify package'
+            }
+            post {
+                success {
+                    echo 'Now Archiving...'
+                    archiveArtifacts artifacts: 'target/*.war'
                 }
             }
+        }
+    }
     post {
         always {
             junit 'target/surefire-reports/*.xml'
