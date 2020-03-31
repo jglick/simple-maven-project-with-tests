@@ -33,7 +33,11 @@ public class OtherTest extends Base {
 
     @Test
     public void myTest() {
-        run();
+        try {
+            run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void test_pass_getDouble() {
