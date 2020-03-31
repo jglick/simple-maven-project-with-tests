@@ -7,16 +7,21 @@ pipeline {
 	        }
 	    }
 
+        // Only build master branch
         stage('Build') {
+            when {
+                branch 'master'
+            }
             steps {
                 bat 'mvn -B clean verify package'
             }
             post {
                 success {
                     echo 'Now Archiving...'
-                    archiveArtifacts artifacts: 'target/*.war'
+                    archiveArtifacts artifacts: 'target/*.jar'
                 }
             }
+
         }
     }
     post {
