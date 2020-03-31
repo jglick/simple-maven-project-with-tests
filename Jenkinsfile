@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    stages{
+    stages {
 	    stage('Test') {
 	        steps {
 	        bat 'mvn -B clean verify'
@@ -49,5 +49,5 @@ pipeline {
 //             }
 //         }
 		
-// 	}
+	}
 }
