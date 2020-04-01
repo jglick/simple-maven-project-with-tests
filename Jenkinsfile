@@ -8,35 +8,35 @@ pipeline {
     }
 
     stage('Windows Testing') {
+      steps {
+        bat 'mvn verify'
+      }
+    }
+
+    stage('create package') {
       parallel {
-        stage('Windows Testing') {
+        stage('create package') {
+          when {
+            branch 'master'
+          }
+          post {
+            success {
+              echo 'Now Archiving...'
+              archiveArtifacts 'target/*.jar'
+            }
+
+          }
           steps {
-            bat 'mvn verify'
+            bat 'mvn package'
           }
         }
 
-        stage('') {
+        stage('Record Jacoco') {
           steps {
             jacoco()
           }
         }
 
-      }
-    }
-
-    stage('create package') {
-      when {
-        branch 'master'
-      }
-      post {
-        success {
-          echo 'Now Archiving...'
-          archiveArtifacts 'target/*.jar'
-        }
-
-      }
-      steps {
-        bat 'mvn package'
       }
     }
 
