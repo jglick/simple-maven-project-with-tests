@@ -1,15 +1,27 @@
 pipeline {
   agent any
   stages {
-      stage('clean and build') {
-        steps {
-            bat 'mvn -B clean'
-        }
+    stage('clean and build') {
+      steps {
+        bat 'mvn -B clean'
       }
+    }
+
     stage('Windows Testing') {
-        steps {
+      parallel {
+        stage('Windows Testing') {
+          steps {
             bat 'mvn verify'
+          }
         }
+
+        stage('') {
+          steps {
+            jacoco()
+          }
+        }
+
+      }
     }
 
     stage('create package') {
