@@ -45,7 +45,9 @@ pipeline {
       }
     }
     stage('Clean environment') {
-        bat 'mvn clean'
+        steps {
+            bat 'mvn clean'
+        }
     }
   }
 
