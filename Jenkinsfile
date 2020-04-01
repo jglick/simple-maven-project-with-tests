@@ -1,13 +1,18 @@
 pipeline {
   agent any
   stages {
-    stage('Windows Testing') {
-      steps {
-        bat 'mvn -B clean verify'
+      stage('clean and build') {
+        steps {
+            bat 'mvn -B clean'
+        }
       }
+    stage('Windows Testing') {
+        steps {
+            bat 'mvn verify'
+        }
     }
 
-    stage('Build') {
+    stage('create package') {
       when {
         branch 'master'
       }
@@ -19,7 +24,7 @@ pipeline {
 
       }
       steps {
-        bat 'mvn -B clean verify package'
+        bat 'mvn package'
       }
     }
 
