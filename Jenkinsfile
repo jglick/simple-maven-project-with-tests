@@ -9,11 +9,11 @@ pipeline {
 
     stage('Windows Testing') {
       steps {
-        bat 'mvn verify'
+        bat 'mvn test'
       }
     }
 
-    stage('create package') {
+    stage('deploy package & generate reports') {
       parallel {
         stage('create package') {
           when {
@@ -27,7 +27,7 @@ pipeline {
 
           }
           steps {
-            bat 'mvn package'
+            bat 'mvn package verify'
           }
         }
 
@@ -36,15 +36,17 @@ pipeline {
             jacoco()
           }
         }
+        stage('Record Junit') {
+          steps {
+            junit 'target/surefire-reports/*.xml'
+          }
+        }
 
       }
     }
-
-  }
-  post {
-    always {
-      junit 'target/surefire-reports/*.xml'
+    stage('Clean environment') {
+        bat 'mvn clean'
     }
-
   }
+
 }

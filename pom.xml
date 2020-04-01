@@ -15,14 +15,14 @@
         <repository>
             <id>localSnap</id>
             <name>RepositoryProxyRel</name>
-            <url>/target/dist/</url>
+            <url>https://maven.pkg.github.com/mbuel</url>
         </repository>
         <!-- use the following if you ARE using a snapshot version. -->
-        <snapshotRepository>
-            <id>MylocalSnap</id>
-            <name>RepositoryProxySnap</name>
-            <url>/target/snap/</url>
-        </snapshotRepository>
+<!--        <snapshotRepository>-->
+<!--            <id>MylocalSnap</id>-->
+<!--            <name>RepositoryProxySnap</name>-->
+<!--            <url>target/snap/</url>-->
+<!--        </snapshotRepository>-->
     </distributionManagement>
     <build>
         <sourceDirectory>src/test/java/test</sourceDirectory>
