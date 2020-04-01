@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class OtherTest extends Base {
+public class OtherTest extends test.Base {
 
     @Test
     public void myTest() {
