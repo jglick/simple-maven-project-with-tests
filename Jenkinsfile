@@ -36,19 +36,27 @@ pipeline {
             jacoco()
           }
         }
+
         stage('Record Junit') {
           steps {
             junit 'target/surefire-reports/*.xml'
           }
         }
 
+        stage('') {
+          steps {
+            pmd()
+          }
+        }
+
       }
     }
-    stage('Clean environment') {
-        steps {
-            bat 'mvn clean'
-        }
-    }
-  }
 
+    stage('Clean environment') {
+      steps {
+        bat 'mvn clean'
+      }
+    }
+
+  }
 }
