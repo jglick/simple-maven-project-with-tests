@@ -7,30 +7,29 @@ pipeline {
       }
     }
 
-        stage('Windows Testing') {
-          steps {
-            bat 'mvn test install org.apache.maven.plugins:maven-pmd-plugin:3.6:pmd'
-          }
+    stage('Windows Testing') {
+      steps {
+        bat 'mvn test'
+      }
+    }
+
+    stage('create package') {
+      when {
+        branch 'master'
+      }
+      post {
+        success {
+          echo 'Now Archiving...'
+          archiveArtifacts 'target/*.jar'
         }
 
-    stage('deploy package & generate reports') {
-      parallel {
-        stage('create package') {
-          when {
-            branch 'master'
-          }
-          post {
-            success {
-              echo 'Now Archiving...'
-              archiveArtifacts 'target/*.jar'
-            }
+      }
+      steps {
+        bat 'mvn package verify'
+      }
+    }
 
-          }
-          steps {
-            bat 'mvn package verify'
-          }
-        }
-
+    parallel {
         stage('Record Jacoco') {
           steps {
             jacoco()
@@ -55,7 +54,7 @@ pipeline {
           }
         }
 
-      }
+
     }
 
     stage('Clean environment') {
