@@ -6,4 +6,8 @@ public class Fort {
     protected void methodDrive() {
 
     }
+
+    protected boolean methodDrive(boolean value) {
+        return allYourBase;
+    }
 }
