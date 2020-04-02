@@ -9,7 +9,7 @@ pipeline {
 
         stage('Windows Testing') {
           steps {
-            bat 'mvn install org.apache.maven.plugins:maven-pmd-plugin:3.6:pmd'
+            bat 'mvn test install org.apache.maven.plugins:maven-pmd-plugin:3.6:pmd'
           }
         }
 
@@ -46,6 +46,12 @@ pipeline {
         stage('Capture PMD') {
           steps {
             pmd()
+          }
+        }
+
+        stage('Capture findbugs') {
+          steps {
+            findbugs()
           }
         }
 
