@@ -7,26 +7,36 @@ pipeline {
       }
     }
 
-    stage('Windows Testing') {
-      steps {
-        bat 'mvn test'
-      }
+    try {
+        stage('Windows Testing') {
+          steps {
+            bat 'mvn test'
+          }
+        }
+    } catch(e) {
+        build_ok = false
+        echo e.toString()
     }
 
-    stage('create package') {
-      when {
-        branch 'master'
-      }
-      post {
-        success {
-          echo 'Now Archiving...'
-          archiveArtifacts 'target/*.jar'
-        }
+    if (build_ok) {
+        stage('create package') {
+          when {
+            branch 'master'
+          }
+          post {
+            success {
+              echo 'Now Archiving...'
+              archiveArtifacts 'target/*.jar'
+            }
 
-      }
-      steps {
-        bat 'mvn package verify'
-      }
+          }
+          steps {
+            bat 'mvn package verify'
+          }
+        }
+        currentBuild.result = "SUCCESS"
+    } else {
+        currentBuild.result = "FAILURE"
     }
 
     stage('Reporting') {
