@@ -7,15 +7,15 @@ pipeline {
       }
     }
 
-    try {
-        stage('Windows Testing') {
+    stage('Windows Testing') {
+        try {
           steps {
             bat 'mvn test'
           }
+        } catch(e) {
+          build_ok = false
+          echo e.toString()
         }
-    } catch(e) {
-        build_ok = false
-        echo e.toString()
     }
 
     if (build_ok) {
