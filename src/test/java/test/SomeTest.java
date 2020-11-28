@@ -40,11 +40,11 @@ public class SomeTest extends Base {
     @Test public void test3() {
         run();
     }
-*/
+
     @Test public void test5() {
         run();
     }
-
+*/
     @Test public void test6() {
         run();
     }
