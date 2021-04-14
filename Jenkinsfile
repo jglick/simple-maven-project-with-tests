@@ -1,7 +1,6 @@
 pipeline {
   agent {
     kubernetes {
-      label BUILD_TAG
       containerTemplate {
         name 'maven'
         image 'maven'
