@@ -1,0 +1,10 @@
+node('master') {
+    stage('Preparation') {
+       git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+    }
+    stage('Build') {
+    withMaven(globalMavenSettingsConfig: 'null', jdk: 'null', maven: 'M3', mavenSettingsConfig: 'null') {
+         sh 'mvn -Dmaven.test.failure.ignore clean package'
+        }
+    }
+}
