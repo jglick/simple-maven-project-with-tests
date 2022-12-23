@@ -10,6 +10,8 @@ import net.datafaker.Faker;
 public class GenerateLinesTest {
 
     private Logger log = LoggerFactory.getLogger(getClass());
+    
+    private final static String LOG_PATTERN = "[{}/{}] {}";
 
     Faker faker = new Faker();
 
@@ -21,15 +23,15 @@ public class GenerateLinesTest {
         for (int i = 0; i < numberOfLines; i++) {
             double r = Math.random();
             if (r < 0.2) {
-                log.error(generatePhrase(10, 30));
+                log.error("[{}/{}] {}", i, numberOfLines, generatePhrase(10, 30));
             } else if (r < 0.4) {
-                log.warn(generatePhrase(10, 30));
+                log.warn("[{}/{}] {}", i, numberOfLines, generatePhrase(10, 30));
             } else if (r < 0.6) {
-                log.info(generatePhrase(10, 30));
+                log.info("[{}/{}] {}", i, numberOfLines, generatePhrase(10, 30));
             } else if (r < 0.8) {
-                log.debug(generatePhrase(10, 30));
+                log.debug("[{}/{}] {}", i, numberOfLines, generatePhrase(10, 30));
             } else {
-                log.trace(generatePhrase(10, 30));
+                log.trace("[{}/{}] {}", i, numberOfLines, generatePhrase(10, 30));
             }
             Thread.sleep(faker.number().numberBetween(sleepMin, sleepMax));
         }
