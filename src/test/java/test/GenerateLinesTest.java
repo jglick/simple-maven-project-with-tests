@@ -23,7 +23,7 @@ public class GenerateLinesTest {
         
         log.info("*** Generating {} lines, with sleepMin={} and sleepMax={}", numberOfLines, sleepMin, sleepMax);
         
-        for (int i = 0; i < numberOfLines; i++) {
+        for (int i = 1; i <= numberOfLines; i++) {
             double r = Math.random();
             if (r < 0.2) {
                 log.error("[{}/{}] {}", i, numberOfLines, generatePhrase(10, 30));
