@@ -20,6 +20,9 @@ public class GenerateLinesTest {
         int numberOfLines = Integer.valueOf(System.getProperty("faker.count", "10"));
         int sleepMin = Integer.valueOf(System.getProperty("faker.sleepMin", "50"));
         int sleepMax = Integer.valueOf(System.getProperty("faker.sleepMax", "80"));
+        
+        log.info("*** Generating {} lines, with sleepMin={} and sleepMax={}", numberOfLines, sleepMin, sleepMax);
+        
         for (int i = 0; i < numberOfLines; i++) {
             double r = Math.random();
             if (r < 0.2) {
