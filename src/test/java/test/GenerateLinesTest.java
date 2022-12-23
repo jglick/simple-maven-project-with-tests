@@ -14,8 +14,10 @@ public class GenerateLinesTest {
     Faker faker = new Faker();
 
     @Test
-    public void generateLines() {
+    public void generateLines() throws Exception {
         int numberOfLines = Integer.valueOf(System.getProperty("faker.count", "10"));
+        int sleepMin = Integer.valueOf(System.getProperty("faker.sleepMin", "50"));
+        int sleepMax = Integer.valueOf(System.getProperty("faker.sleepMax", "80"));
         for (int i = 0; i < numberOfLines; i++) {
             double r = Math.random();
             if (r < 0.2) {
@@ -29,6 +31,7 @@ public class GenerateLinesTest {
             } else {
                 log.trace(generatePhrase(10, 30));
             }
+            Thread.sleep(faker.number().numberBetween(sleepMin, sleepMax));
         }
     }
 
