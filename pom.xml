@@ -20,6 +20,18 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshot</id>
+            <name>my nexus snapshot</name>
+            <url>http://192.168.88.14:8081/repository/maven-snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-release</id>
+            <name>my nexus release</name>
+            <<url>http://192.168.88.14:8081/repository/maven-release</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
