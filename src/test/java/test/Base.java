@@ -30,8 +30,9 @@ import org.junit.internal.AssumptionViolatedException;
 class Base {
 
     protected void run() {
+        int failureOdd = Integer.valueOf(System.getProperty("failure.odd", "0.1"));
         double r = Math.random();
-        if (r < 0.1) {
+        if (r < failureOdd) {
             fail("oops");
         } else if (r < 0.2) {
             throw new AssumptionViolatedException("skipping");
