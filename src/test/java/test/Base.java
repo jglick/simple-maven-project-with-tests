@@ -30,11 +30,12 @@ import org.junit.internal.AssumptionViolatedException;
 class Base {
 
     protected void run() {
-        int failureOdd = Integer.valueOf(System.getProperty("failure.odd", "0.1"));
+        double failureOdd = Double.parseDouble(System.getProperty("failure.odd", "0.1"));
+        double skippingOdd = Double.parseDouble(System.getProperty("skipping.odd", "0.2"));
         double r = Math.random();
         if (r < failureOdd) {
             fail("oops");
-        } else if (r < 0.2) {
+        } else if (r < skippingOdd) {
             throw new AssumptionViolatedException("skipping");
         }
     }
