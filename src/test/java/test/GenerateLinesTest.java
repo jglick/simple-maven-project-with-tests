@@ -8,7 +8,8 @@ import org.slf4j.LoggerFactory;
 import net.datafaker.Faker;
 
 public class GenerateLinesTest {
-
+`
+    // some comment
     private Logger log = LoggerFactory.getLogger(getClass());
     
     private final static String LOG_PATTERN = "[{}/{}] {}";
