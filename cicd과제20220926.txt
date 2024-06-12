@@ -1,0 +1,43 @@
+# rhel8 iso 파일 다운로드
+https://developers.redhat.com/products/rhel/download
+#virtualbox에 rhel8 설치 가이드
+https://developers.redhat.com/rhel8/install-rhel8-vbox/v3
+#virtualbox에 rhel7 설치 가이드
+https://developers.redhat.com/products/rhel/hello-world#fndtn-virtualbox
+
+# jenkins 설치 가이드
+https://www.jenkins.io/doc/book/installing/linux/
+
+# jenkins 추가 플러그인
+# 플러그인 검색 사이트
+#https://plugins.jenkins.io/
+Blue Ocean
+Config File Provider
+OpenShift Client
+#OpenShift Sync
+#OpenShift Login
+Nexus Artifact Uploader
+Role-based Authorization Strategy
+Folder-based Authorization Strategy
+SonarQube Scanner
+Maven Integration	
+Pipeline Maven Integration
+GitLab
+Generic Webhook Trigger
+Pipeline Utility Steps
+Extended Choice Parameter
+Mask Passwords
+
+
+# Jboss War Deploy 방법 (배포용 포트 및 계정을 사용해서)
+https://docs.jboss.org/jbossas/7/plugins/maven/latest/
+https://stackoverflow.com/questions/17357175/how-to-deploy-war-file-to-jboss-as-7-server-using-maven
+https://waspro.tistory.com/552
+http://www.opennaru.com/wp-content/uploads/2020/02/CLI_JBoss_%EC%84%A4%EC%B9%98%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf
+
+# Jenkins 사용자 관리 및 역할 별 롤 부여 체계
+https://waspro.tistory.com/553
+
+# 취약점 분석 참고자료
+https://www.kisa.or.kr/uploadfile/201906/201906261433513536.pdf
+https://www.kisa.or.kr/uploadfile/201907/201907181728241704.pdf
