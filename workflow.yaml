@@ -1,0 +1,20 @@
+name: Build
+on:
+  push:
+    branches:
+      - master # or the name of your main branch
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: docker://sonarsource/sonar-scanner-cli:latest
+        env:
+          GITHUB_TOKEN: 1fdd88be9d2b25710f2dbcea00b79e728f7037aa
+          SONAR_TOKEN: c5fbda9c9bead0e9785b6f77fceff491edbfb3d5
+          SONAR_HOST_URL: http://34.125.110.134:9000/
