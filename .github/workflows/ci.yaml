@@ -1,0 +1,48 @@
+name: First CI Pipeline Project - Simple Maven
+
+# First block on your pipeline config is the trigger
+
+on:
+    push:
+        branches: [ feature-simon, master ]
+    
+    pull_request:
+        branches: [ feature-simon, master ]
+
+jobs:
+    build-job:
+        runs-on: ubuntu-latest
+
+        steps:
+            # - name: 1. Clone the code
+            #   env:
+            #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            #   run: |
+            #     git init
+            #     git remote add origin https://github.com/${{ github.repository }}
+            #     git fetch --depth 1 origin ${{ github.ref }}
+            #     git checkout FETCH_HEAD
+
+            - name: 1.1 Clone with actions
+              uses: actions/checkout@v6
+            
+            - name: 2. Check Java and Maven versions
+              run: |
+               java --version
+               mvn --version
+
+            # - name: 3. The Actual Build
+            #   run: |
+            #    mvn compile
+            #    mvn test
+            #    mvn package
+
+            - name: 3.1 Build with Action
+              uses: dienha93/maven-actions@v1.0.0
+              with:
+                operation: 'package'
+                java-version: '8'
+                maven-version: '2.18.1'
+
+            - name: 4. List the JAR file
+              run: ls -l target/*.jar
